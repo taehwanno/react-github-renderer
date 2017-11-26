@@ -1,0 +1,7 @@
+*.log
+.env
+.idea
+coverage
+node_modules
+
+dist

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<File /> should match snapshot with props.name and props.children 1`] = `
+Object {
+  "description": "",
+  "files": Object {
+    "file1.txt": Object {
+      "content": "contents of file1.txt",
+    },
+  },
+  "public": true,
+}
+`;
+
+exports[`<File /> should throw an error when props.children not exist or not string 1`] = `"props.children in <File /> must be required as string"`;
+
+exports[`<File /> should throw an error when props.name not exist or not string 1`] = `"props.name in <File /> must be required as string"`;
+
+exports[`<File /> should throw an error when rendered alone 1`] = `"<File /> can be only rendered within <Gist />"`;
+
+exports[`<File /> should throw an error when the same props.name exist among <File /> 1`] = `"the same props.name is not allowed among <File />"`;

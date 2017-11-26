@@ -1,0 +1,67 @@
+defaults: &defaults
+  working_directory: ~/react-github-renderer
+  docker:
+      - image: circleci/node:8.9.0
+
+version: 2
+
+jobs:
+  checkout:
+    <<: *defaults
+    steps:
+      - checkout
+      - save_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/react-github-renderer
+
+  dependency:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Root Dependency
+          command: yarn install
+      - save_cache:
+          key: dependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ./node_modules
+            - ~/.yarn-cache
+
+  test:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Test
+          command: yarn test:coverage --maxWorkers=2
+      - store_artifacts:
+          path: coverage
+          destination: coverage
+
+workflows:
+  version: 2
+  checkout-and-dependency-test:
+    jobs:
+      - checkout:
+          filters:
+            tags:
+              only: /.*/
+      - dependency:
+          requires:
+            - checkout
+          filters:
+            tags:
+              only: /.*/
+      - test:
+          requires:
+            - dependency
+          filters:
+            tags:
+              only: /.*/

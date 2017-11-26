@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Release /> should match snapshot 1`] = `
+Object {
+  "body": "",
+  "draft": false,
+  "name": "v1.0.0",
+  "prerelease": false,
+  "tag_name": "v1.0.0",
+  "target_commitish": "master",
+}
+`;
+
+exports[`<Release /> should throw an error when props.tagName not exist or not string 1`] = `"props.tagName must have with string type"`;

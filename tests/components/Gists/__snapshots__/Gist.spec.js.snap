@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Gist /> should match snapshot when render default 1`] = `
+Object {
+  "description": "",
+  "files": Object {},
+  "public": true,
+}
+`;
+
+exports[`<Gist /> should render <File /> in children 1`] = `
+Object {
+  "description": "",
+  "files": Object {
+    "file1.txt": Object {
+      "content": "contents of file1.txt",
+    },
+    "file2.txt": Object {
+      "content": "contents of file2.txt",
+    },
+    "file3.txt": Object {
+      "content": "contents of file3.txt",
+    },
+  },
+  "public": true,
+}
+`;

@@ -1,0 +1,19 @@
+{
+  "extends": "eslint:recommended",
+  "plugins": ["react"],
+  "env": {
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "overrides": [
+    {
+      "files": ["*.spec.js"],
+      "rules": {
+        "no-unused-vars": 0
+      },
+      "env": {
+        "jest": true
+      },
+    }
+  ]
+}
