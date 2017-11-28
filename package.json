@@ -1,6 +1,6 @@
 {
   "name": "react-github-renderer",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A react custom renderer for Github",
   "main": "dist/react-github-renderer.js",
   "license": "MIT",
