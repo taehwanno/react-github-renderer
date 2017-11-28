@@ -1,4 +1,4 @@
-# react-github-renderer
+# react-github-renderer [![Build Status](https://circleci.com/gh/taehwanno/react-github-renderer/tree/master.svg?style=shield&circle-token=08557fea8367bfc1b2a1d8b72a87eaad9dd12b67)](https://circleci.com/gh/taehwanno/react-github-renderer/tree/master) [![npm version](https://badge.fury.io/js/react-github-renderer.svg)](https://badge.fury.io/js/react-github-renderer)
 
 > A react custom renderer for Github :octocat:
 
