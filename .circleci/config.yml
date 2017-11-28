@@ -45,9 +45,20 @@ jobs:
           path: coverage
           destination: coverage
 
+  build:
+    <<: *defaults
+    steps:
+      - restore_cache:
+          key: repository-{{ .Environment.CIRCLE_SHA1 }}
+      - restore_cache:
+          key: dependency-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Build
+          command: yarn build
+
 workflows:
   version: 2
-  checkout-and-dependency-test:
+  checkout-and-dependency-test-build:
     jobs:
       - checkout:
           filters:
@@ -62,6 +73,12 @@ workflows:
       - test:
           requires:
             - dependency
+          filters:
+            tags:
+              only: /.*/
+      - build:
+          requires:
+            - test
           filters:
             tags:
               only: /.*/
