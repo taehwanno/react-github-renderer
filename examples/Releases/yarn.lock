@@ -3207,8 +3207,9 @@ rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-github@../../:
-  version "1.0.0"
+react-github-renderer@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-github-renderer/-/react-github-renderer-0.1.0.tgz#716a044c14b6d48c469c566a634fca094e0bd13c"
   dependencies:
     invariant "^2.2.2"
     react-reconciler "^0.6.0"
